@@ -10,6 +10,7 @@ public class Playlist {
     ArrayList<Song> mSongs;
     public Playlist(String name){
         mSongs=new ArrayList<>();
+        mName=name;
     }
     public void addSong(Song song){
         mSongs.add(song);
@@ -29,7 +30,7 @@ public class Playlist {
         return mSongs.get(index);
     }
     public void appendPlaylist(Playlist playlist){
-        for (int i = 0; i<playlist.getSize()-1;i++){
+        for (int i = 0; i<playlist.getSize();i++){
             mSongs.add(playlist.getAtIndex(i));
         }
     }

@@ -1,5 +1,7 @@
 package NikitaS;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -10,6 +12,8 @@ public class Main {
         Song newFang = new Song("New Fang", "Them Crooked Vultures", "Them Crooked Vultures");
 
         Song iceMonster = new Song("Ice Monster", "Minus The Bear", "Planet of Ice");
+        Song coughSyrup = new Song("Cough Syrup", "Young the Giant", "Young the Giant");
+        Song wonderBoy = new Song("WonderBoy", "Tenacious D", "Tenacious D");
 
 
         Song myOnlySwerving = new Song("My Only Swerving", "El Ten Eleven", "El Ten Eleven");
@@ -21,6 +25,7 @@ public class Main {
         Playlist joshHomme = new Playlist("Josh Homme");
         Playlist postRock = new Playlist("Post-rock");
         Playlist instrumental = new Playlist("Instrumental music");
+        Playlist other = new Playlist("Others");
 
         joshHomme.addSong(myGodIsTheSun);
         joshHomme.addSong(elRodeo);
@@ -33,22 +38,26 @@ public class Main {
         instrumental.appendPlaylist(postRock);
         instrumental.addSong(liteBake);
 
+        other.addSong(iceMonster);
+        other.addSong(coughSyrup);
+        other.addSong(wonderBoy);
+
+
+
+
+        me.addPlayList(other);
+        me.addPlayList(joshHomme);
+        me.addPlayList(instrumental);
+        me.addPlayList(postRock);
+
+        me.removePlaylistByName(postRock.getName());
+
+        ArrayList<String> plNames= me.getAllPlaylistNames();
+        for (String name:plNames) {
+            System.out.println("\nCurrent playlist is: "+me.getPlaylistByName(name).getName()+"\n");
+            me.getPlaylistByName(name).playAll();
+        }
 
 
     }
 }
-
-//        Main class requirements
-//
-//Create your main() method here - this is where you create and manipulate instances of the other classes; do the following steps inside main()
-//        Create a new instance of User
-//        Create at least 5 new instances of Song and assign each to a variable (You can come up with creative values or just use "song1", "artist1", etc.)
-//        Create at least 2 instances of Playlist, add multiple Song objects to each, then add those Playlist objects to your User object
-//        Use the methods you defined and print out the names of your user's playlists, then "play" each song in each playlist so the songs print out as well
-
-
-//        Bonus:
-//
-//        Add methods to each class which can be used to edit the values of the member variables
-//        Add a method to User to remove a Playlist by name
-//        Call your bonus methods from main() to make sure they work properly (hint: if you change a playlist's name, you'll need to first remove it from User by specifying the old name as a key, then re-add it using the new name as the new key)

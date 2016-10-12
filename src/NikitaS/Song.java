@@ -13,6 +13,6 @@ public class Song {
         mAlbumName=albumName;
     }
     public void play(){
-        System.out.println("Now playing: "+mSongName+" By: "+ mArtistName+ " From album: "+ mAlbumName);
+        System.out.println("\nNow playing: "+mSongName+"\nBy: "+ mArtistName+ "\nFrom album: "+ mAlbumName);
     }
 }
