@@ -1,11 +1,37 @@
 package NikitaS;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * Created by NikitaShuvalov on 10/11/16.
  */
 public class User {
     String mName;
+    HashMap<String, Playlist> mPlayLists;
 
+    public User(String name){
+        mName= name;
+        mPlayLists=new HashMap<>();
+    }
+    public void addPlayList(Playlist playlist){
+        mPlayLists.put(playlist.getName(),playlist);
+    }
+    public ArrayList<String> getAllPlaylistNames(){
+        ArrayList<Playlist> playLists= (ArrayList<Playlist>) mPlayLists.values();
+        ArrayList<String> playListNames = new ArrayList<>();
+        for (Playlist playlist:playLists) {
+            playListNames.add(playlist.getName());
+        }
+        return playListNames;
+    }
+
+    public Playlist getPlaylistByName(String name) {
+        if (mPlayLists.containsKey(name)) {
+            return mPlayLists.get(name);
+        }
+        return null;
+    }
 }
 
 //        User class requirements

@@ -18,8 +18,19 @@ public class Playlist {
         return mName;
     }
     public void playAll(){
-        for (Song song:mSongs) {
+        for (Song song: mSongs) {
             song.play();
+        }
+    }
+    public int getSize(){
+        return mSongs.size();
+    }
+    public Song getAtIndex(int index){
+        return mSongs.get(index);
+    }
+    public void appendPlaylist(Playlist playlist){
+        for (int i = 0; i<playlist.getSize()-1;i++){
+            mSongs.add(playlist.getAtIndex(i));
         }
     }
 }
